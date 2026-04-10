@@ -25,6 +25,7 @@ Instala como dependência de desenvolvimento.
 */
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors")
 
 const { sequelize } = require("./models");
 const authRoutes = require("./routes/authRoutes")
@@ -32,7 +33,9 @@ const productRoutes = require("./routes/productRoutes")
 const clientRoutes = require("./routes/clientRoutes")
 const saleRoutes = require("./routes/saleRoutes")
 
+
 const app = express();
+app.use(cors())
 app.use(express.json());
 
 app.use(authRoutes)
